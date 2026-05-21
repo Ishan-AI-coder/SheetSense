@@ -109,7 +109,6 @@ if uploaded_file is not None:
                         result = plotting_agent.run_sync(user_input)
                         cleaned_code = clean_plot_code(result.output)
                         
-                        # Store plot state and RESET plot Q&A history when a new plot is made
                         st.session_state.current_plot_code = cleaned_code
                         st.session_state.current_plot_type = selected_plot
                         st.session_state.current_plot_params = params
@@ -137,7 +136,6 @@ if uploaded_file is not None:
                         with st.chat_message(msg["role"]):
                             st.markdown(msg["content"])
                             
-                    # FIX: Use a form instead of chat_input to prevent layout skewing
                     with st.form(key="plot_qa_form", clear_on_submit=True):
                         col1, col2 = st.columns([5, 1])
                         with col1:
@@ -150,7 +148,6 @@ if uploaded_file is not None:
                             submit_plot = st.form_submit_button("Ask 🤖", use_container_width=True)
                             
                     if submit_plot and plot_query:
-                        # Display user message instantly
                         st.session_state.plot_ui_chat.append({"role": "user", "content": plot_query})
                         with st.chat_message("user"):
                             st.markdown(plot_query)
@@ -169,8 +166,7 @@ if uploaded_file is not None:
                                     message_history=st.session_state.plot_qa_history
                                 )
                                 st.markdown(plot_result.output)
-                                
-                                # Save context
+    
                                 st.session_state.plot_qa_history.extend(plot_result.new_messages())
                                 st.session_state.plot_ui_chat.append({"role": "assistant", "content": plot_result.output})
 
@@ -197,12 +193,10 @@ if uploaded_file is not None:
             general_query = st.chat_input("Type your question (e.g., 'What is the average price?')")
 
             if general_query:
-                # Add user message to UI
                 st.session_state.general_ui_chat.append({"role": "user", "content": general_query})
                 with st.chat_message("user"):
                     st.markdown(general_query)
 
-                # Get Agent Response
                 with st.chat_message("assistant"):
                     with st.spinner("Analyzing data to find your answer... 🤖"):
                         try:
@@ -212,8 +206,7 @@ if uploaded_file is not None:
                                 message_history=st.session_state.general_qa_history
                             )
                             st.markdown(qa_result.output)
-                            
-                            # Append history
+                        
                             st.session_state.general_qa_history.extend(qa_result.new_messages())
                             st.session_state.general_ui_chat.append({"role": "assistant", "content": qa_result.output})
                             
