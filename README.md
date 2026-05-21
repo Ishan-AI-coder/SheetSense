@@ -420,18 +420,11 @@ Ready to spin up your own AI Data Analyst?
 
 ---
 
+<br>
+<hr size="4" color="#e0dff0">
+
 <div align="center">
-
+  <h2>📊 SheetSense: Stop staring at your spreadsheets. Start making sense of them.</h2>
 <br>
-
-╔══════════════════════════════════════════════════════════════════════╗  
-║                                                                      ║  
-║   ⚡ "Most AI tools talk about your data. SheetSense interrogates it." ⚡   ║  
-║                                                                      ║  
-╚══════════════════════════════════════════════════════════════════════╝
-
-<br>
-
-
-
 </div>
+<br>

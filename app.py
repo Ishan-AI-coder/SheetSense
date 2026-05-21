@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import plotly.express as px
-from main2 import summarize_agent, plotting_agent, qa_agent, plot_qa_agent, DatasetDeps, PlotDeps
+from main import summarize_agent, plotting_agent, qa_agent, plot_qa_agent, DatasetDeps, PlotDeps
 import re
 
 st.set_page_config(page_title="SheetSense", layout="wide")
